@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "Anverali"
+version = "0.1.8"
+description = ""
+authors = ["stas <stanis.forlive@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^4.2.4"
+psycopg2-binary = "^2.9.9"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
