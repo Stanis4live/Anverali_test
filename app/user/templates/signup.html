@@ -1,6 +1,43 @@
-<h2>Sign up</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign up</button>
-</form>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница регистрации</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Регистрация нового пользователя</h1>
+    </header>
+    <main>
+        <form action="/signup" method="post" style="max-width: 300px; margin: auto;">
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <div class="form-group">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password1">Пароль:</label>
+                <input type="password" id="password1" name="password1" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password2">Подтвердите пароль:</label>
+                <input type="password" id="password2" name="password2" required class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Зарегистрироваться</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p>© 2023 Наш сайт. Все права защищены.</p>
+    </footer>
+</body>
+</html>
