@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
+
+from customer.models import Order
 from .forms import SignUpForm
 
 def signup(request):
@@ -34,4 +36,5 @@ def logout_view(request):
     return redirect('home')
 
 def home(request):
-    return render(request, 'home.html')
+    free_orders_count = Order.objects.count()
+    return render(request, 'home.html', {'free_orders_count': free_orders_count})

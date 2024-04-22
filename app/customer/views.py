@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
+from django.db import transaction
 from .forms import EditCustomerForm
+from .models import Order
+
 
 def customer_dashboard(request):
     if not request.user.is_authenticated:
@@ -17,3 +20,13 @@ def customer_dashboard(request):
         'user': request.user
     })
 
+
+@transaction.atomic
+def add_order(request):
+    if request.method == 'POST':
+        new_order = Order()
+        new_order.save()
+        user = request.user
+        user.experience += 1
+        user.save()
+        return redirect('customer-dashboard')

@@ -2,29 +2,33 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Кабинет заказчика</title>
+    <title>Кабинет исполнителя</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header>
-        <h1>Кабинет заказчика</h1>
+        <h1>Кабинет исполнителя</h1>
         <nav class="navbar">
             <a href="{% url 'home' %}" class="btn">Домой</a>
             <a href="{% url 'logout' %}" class="btn">Выйти</a>
         </nav>
     </header>
-    <main>
+    <main class="centralized-container">
         <div class="experience-management">
-            <form method="post" action="{% url 'add-order' %}">
+            <form method="post" action="{% url 'execute-order' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <label>Опыт:</label>
                     <input type="text" value="{{ user.experience }}" class="form-control" disabled>
-                    <button type="submit" class="btn btn-success">Добавить заказ</button>
+                    <button type="submit" class="btn btn-success">Выполнить заказ</button>
+                </div>
+                <div class="free-orders">
+                <p>Свободные заказы: {{ free_orders_count }}</p>
                 </div>
             </form>
         </div>
+
         <div class="customer-data">
             <form method="post">
                 {% csrf_token %}
@@ -50,6 +54,5 @@
     </main>
 </body>
 </html>
-
 
 

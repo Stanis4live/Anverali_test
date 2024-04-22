@@ -74,3 +74,24 @@ footer {
 .form-group {
     margin-bottom: 15px;
 }
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.customer-data, .experience-management {
+    flex: 1;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+
