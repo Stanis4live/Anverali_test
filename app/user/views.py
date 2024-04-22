@@ -10,6 +10,7 @@ def signup(request):
             user = form.save()
             login(request, user)
             return redirect('home')
+        print("Errors:", form.errors)
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
