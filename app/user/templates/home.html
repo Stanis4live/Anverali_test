@@ -18,10 +18,10 @@
                 {% elif user.role == 'PERFORMER' %}
                     <a href="/performer/dashboard/">В личный кабинет</a>
                 {% endif %}
-                <a href="/logout/">Выйти</a>
+                <a href="{% url 'account_logout' %}">Выйти</a>
             {% else %}
-                <a href="/login/">Войти</a>
-                <a href="/signup/">Регистрация</a>
+                <a href="{% url 'account_login' %}">Войти</a>
+                <a href="{% url 'account_signup' %}">Регистрация</a>
             {% endif %}
         </nav>
     </header>

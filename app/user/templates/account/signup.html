@@ -11,9 +11,12 @@
 <body>
     <header>
         <h1>Регистрация нового пользователя</h1>
+        <nav class="navbar">
+            <a href="{% url 'home' %}" class="btn">Домой</a>
+        </nav>
     </header>
     <main>
-        <form action="/signup/" method="post" style="max-width: 300px; margin: auto;">
+        <form action="{% url 'account_signup' %}" method="post" style="max-width: 300px; margin: auto;">
             {% csrf_token %}
             {% if form.non_field_errors %}
                 <div class="errorlist">{{ form.non_field_errors }}</div>
